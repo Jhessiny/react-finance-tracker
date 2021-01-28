@@ -10,16 +10,23 @@ function App() {
   useEffect(() => {
     let temp = 0;
     for (let i = 0; i < income.length; i++) {
-      temp += parseInt(income[i].price);
+      console.log(income[i].type);
+      if (income[i].type == "Expense") {
+        temp -= parseInt(income[i].price);
+      } else {
+        temp += parseInt(income[i].price);
+      }
     }
 
     setTotalIncome(temp);
   }, [income]);
   return (
     <div className="App">
-      <Header totalIncome={totalIncome} />
-      <IncomeForm income={income} setIncome={setIncome} />
-      <IncomeList income={income} setIncome={setIncome} />
+      <div className="container">
+        <Header totalIncome={totalIncome} />
+        <IncomeForm income={income} setIncome={setIncome} />
+        <IncomeList income={income} setIncome={setIncome} />
+      </div>
     </div>
   );
 }

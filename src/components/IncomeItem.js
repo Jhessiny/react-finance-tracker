@@ -16,7 +16,16 @@ function IncomeItem({ income, index, removeIncome }) {
         x
       </button>
       <div className="desc">{income.desc}</div>
-      <div className="price">R${income.price}</div>
+      <div
+        className={`type  ${income.type == "Income" ? "income" : "expense"}`}
+      >
+        {income.type}
+      </div>
+      <div
+        className={`price ${income.type == "Income" ? "income" : "expense"}`}
+      >
+        R${income.price}
+      </div>
       <div className="date">{`${day}/${month}/${year}`}</div>
     </div>
   );

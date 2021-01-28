@@ -15,7 +15,8 @@
 }
 
 input,
-button {
+button,
+select {
   border: none;
   outline: none;
   background: none;
@@ -27,6 +28,11 @@ body {
 
 .App {
   padding: 30px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
 }
 
 header {
@@ -84,7 +90,8 @@ h1 {
   transition: 0.4s;
   border-radius: 8px;
 }
-.form-inner input {
+.form-inner input,
+select {
   font-size: 18px;
   padding: 10px 15px;
   background-color: #fff;
@@ -116,6 +123,10 @@ h1 {
   text-transform: uppercase;
 
   transition: 0.4s;
+}
+
+.form-inner select {
+  border-radius: 0px;
 }
 
 .form-inner input[type="submit"]:hover {
@@ -157,6 +168,19 @@ h1 {
 
 .income-list .income-item:hover .remove-item {
   width: 50px;
+}
+
+.type {
+  padding: 0 40px;
+  font-weight: bold;
+}
+
+.income {
+  color: #53ff45;
+}
+
+.expense {
+  color: var(--alert);
 }
 
 .income-list .income-item .desc {

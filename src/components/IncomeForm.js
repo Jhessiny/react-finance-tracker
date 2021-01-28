@@ -4,6 +4,7 @@ function IncomeForm({ income, setIncome }) {
   const desc = useRef(null);
   const date = useRef(null);
   const price = useRef(null);
+  const type = useRef(null);
 
   const addIncome = (e) => {
     e.preventDefault();
@@ -16,12 +17,15 @@ function IncomeForm({ income, setIncome }) {
         desc: desc.current.value,
         price: price.current.value,
         date: newD.getTime(),
+        type: type.current.value,
       },
     ]);
+    console.log(type.current.value);
 
     desc.current.value = "";
     date.current.value = null;
     price.current.value = null;
+    type.current.value = null;
   };
   return (
     <form className="income-form" onSubmit={addIncome}>
@@ -31,23 +35,23 @@ function IncomeForm({ income, setIncome }) {
           type="text"
           name="desc"
           id="desc"
-          placeholder="Income description..."
+          placeholder="Description..."
         />
         <input
           ref={price}
           type="number"
           name="price"
           id="price"
-          placeholder="Price"
+          placeholder="Value"
         />
-        <input
-          ref={date}
-          type="date"
-          name="date"
-          id="date"
-          placeholder="Income date"
-        />
-        <input type="submit" value="Add income" />
+        <input ref={date} type="date" name="date" id="date" />
+        <select ref={type} name="type">
+          <option selected value="Income">
+            Income
+          </option>
+          <option value="Expense">Expense</option>
+        </select>
+        <input type="submit" value="Add" />
       </div>
     </form>
   );
